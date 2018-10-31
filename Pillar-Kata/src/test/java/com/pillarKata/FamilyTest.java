@@ -29,4 +29,10 @@ public class FamilyTest {
 		Family family = new Family("B");
 		assertEquals(family.getPaymentFromFamily("B", 1, 3), 24);
 	}
+	
+	@Test
+	public void getSecondPaymentRateForFamilyB(){
+		Family family = new Family("B");
+		assertEquals(family.getPaymentFromFamily("B", 5, 7), 16);
+	}
 }
