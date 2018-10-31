@@ -17,5 +17,11 @@ public class BabySitterTest {
 		BabySitter babySitter = new BabySitter("10:00PM", "11:00PM");
 		assertEquals(babySitter.getStartTime(), 5);
 	}
+	
+	@Test
+	public void correctlySetStartTimeFromValidStringOfMidnight(){
+		BabySitter babySitter = new BabySitter("12:00AM", "1:00AM");
+		assertEquals(babySitter.getStartTime(), 7);
+	}
 
 }
