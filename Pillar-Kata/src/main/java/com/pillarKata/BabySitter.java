@@ -7,7 +7,7 @@ public class BabySitter {
 
 	public BabySitter(String startTimeString, String endTimeString) {
 		startTime = convertTimeStringToInt(startTimeString);
-		// endTime = convertTimeStringToInt(endTimeString);
+		endTime = convertTimeStringToInt(endTimeString);
 	}
 
 	public int getStartTime() {
