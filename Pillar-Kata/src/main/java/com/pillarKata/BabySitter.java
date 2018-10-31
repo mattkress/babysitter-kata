@@ -36,10 +36,11 @@ public class BabySitter {
 			}else{
 				time = Integer.parseInt(timeString.substring(0,1)) -5;
 			}
-		}else if(timeString.startsWith("12") && timeString.substring(timeString.length() -2, timeString.length()).equals("AM")){
+		}else if(timeString.startsWith("12") && timeString.substring(timeString.length() -2, timeString.length()).equals("AM")){		
 			time = 7;
-		}
-		else{
+		}else if(timeString.substring(timeString.length() -2, timeString.length()).equals("AM")){
+			time = Integer.parseInt(timeString.substring(0,1)) + 7;
+		}else{
 			time = 100;
 		};		
 		return time;
