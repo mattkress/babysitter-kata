@@ -31,6 +31,12 @@ public class Family {
 				time++;
 			}
 			
+		}else if(typeOfFamily.equals("B")){
+			//First rate of payment before 10PM
+			while(time < 5 && time < endTime){
+				moneyEarned = moneyEarned + 12;
+				time++;
+			}
 		}
 		
 		return moneyEarned;
