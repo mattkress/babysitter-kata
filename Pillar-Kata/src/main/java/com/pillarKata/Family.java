@@ -42,6 +42,11 @@ public class Family {
 				moneyEarned = moneyEarned + 8;
 				time++;
 			}
+			//Third rate of payment after midnight
+			while(time >= 7 && time < endTime){
+				moneyEarned = moneyEarned + 16;
+				time++;
+			}
 		}
 		
 		return moneyEarned;

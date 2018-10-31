@@ -35,4 +35,28 @@ public class FamilyTest {
 		Family family = new Family("B");
 		assertEquals(family.getPaymentFromFamily("B", 5, 7), 16);
 	}
+	
+	@Test
+	public void getThirdPaymentRateForFamilyB(){
+		Family family = new Family("B");
+		assertEquals(family.getPaymentFromFamily("B", 8, 10), 32);
+	}
+	
+	@Test
+	public void getCombinationOfFirstAndSecondPaymentRateForFamilyB(){
+		Family family = new Family("B");
+		assertEquals(family.getPaymentFromFamily("B", 0, 6), 68);
+	}
+	
+	@Test
+	public void getCombinationOfSecondAndThirdPaymentRateForFamilyB(){
+		Family family = new Family("B");
+		assertEquals(family.getPaymentFromFamily("B", 5, 9), 48);
+	}
+	
+	@Test
+	public void getCombinationOfFirstSecondAndThirdPaymentRateForFamilyB(){
+		Family family = new Family("B");
+		assertEquals(family.getPaymentFromFamily("B", 0, 10), 124);
+	}
 }
