@@ -20,10 +20,17 @@ public class Family {
 		int moneyEarned = 0;
 		int time = startTime;
 		if(typeOfFamily.equals("A")){
+			//First rate of payment before 11PM
 			while(time < 6 && time < endTime){
 				moneyEarned = moneyEarned + 15;
 				time++;
 			}
+			//Second rate of payment after 11PM
+			while(time >= 6 && time < endTime){
+				moneyEarned = moneyEarned + 20;
+				time++;
+			}
+			
 		}
 		
 		return moneyEarned;
