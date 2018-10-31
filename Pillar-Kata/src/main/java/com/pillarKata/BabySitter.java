@@ -30,7 +30,12 @@ public class BabySitter {
 		int time;
 		//checking if last two characters of string are AM or PM
 		if(timeString.substring(timeString.length() -2, timeString.length()).equals("PM")){
-			time = Integer.parseInt(timeString.substring(0,1)) -5;
+			//checking if after 10PM for if one or two characters are needed for integer conversion
+			if(timeString.startsWith("1")){
+				time = Integer.parseInt(timeString.substring(0,2)) -5;
+			}else{
+				time = Integer.parseInt(timeString.substring(0,1)) -5;
+			}
 		}else{
 			time = 100;
 		};		

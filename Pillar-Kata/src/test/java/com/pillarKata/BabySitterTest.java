@@ -12,10 +12,10 @@ public class BabySitterTest {
 		assertEquals(babySitter.getStartTime(), 0);
 	}
 	
-//	@Test
-//	public void correctlySetStartTimeFromValidStringAfter10PMAndBeforeMidnight(){
-//		BabySitter babySitter = new BabySitter("11", "11");
-//		assertEquals(babySitter.getStartTime(), 6);
-//	}
+	@Test
+	public void correctlySetStartTimeFromValidStringAfter10PMAndBeforeMidnight(){
+		BabySitter babySitter = new BabySitter("10:00PM", "11:00PM");
+		assertEquals(babySitter.getStartTime(), 5);
+	}
 
 }
