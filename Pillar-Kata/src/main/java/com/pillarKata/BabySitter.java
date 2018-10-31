@@ -7,7 +7,7 @@ public class BabySitter {
 	
 	public BabySitter(String startTimeString, String endTimeString){
 		startTime = convertTimeStringToInt(startTimeString);
-		endTime = convertTimeStringToInt(endTimeString);
+//		endTime = convertTimeStringToInt(endTimeString);
 	}
 	
 	public int getStartTime() {
@@ -26,10 +26,14 @@ public class BabySitter {
 		this.endTime = endTime;
 	}
 	
-	public int convertTimeStringToInt(String startTime){
+	public int convertTimeStringToInt(String timeString){
 		int time;
-		time = Integer.parseInt(startTime) -5;
-		setStartTime(time);
+		//checking if last two characters of string are AM or PM
+		if(timeString.substring(timeString.length() -2, timeString.length()).equals("PM")){
+			time = Integer.parseInt(timeString.substring(0,1)) -5;
+		}else{
+			time = 100;
+		};		
 		return time;
 	}
 	

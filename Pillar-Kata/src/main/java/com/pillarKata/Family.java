@@ -7,4 +7,6 @@ public class Family {
 	public Family(String typeOfFamily){
 		this.typeOfFamily = typeOfFamily;
 	}
+	
+	
 }
