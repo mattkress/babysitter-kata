@@ -1,11 +1,13 @@
 package com.pillarKata;
 
+import com.pillarKata.Exceptions.IncorrectTimeStampException;
+
 public class BabySitter {
 
 	private int startTime;
 	private int endTime;
 
-	public BabySitter(String startTimeString, String endTimeString) {
+	public BabySitter(String startTimeString, String endTimeString) throws IncorrectTimeStampException {
 		startTime = convertTimeStringToInt(startTimeString);
 		endTime = convertTimeStringToInt(endTimeString);
 	}
@@ -26,7 +28,7 @@ public class BabySitter {
 		this.endTime = endTime;
 	}
 
-	public int convertTimeStringToInt(String timeString){
+	public int convertTimeStringToInt(String timeString) throws IncorrectTimeStampException{
 		int time;
 		//checking if last two characters of string are AM or PM
 		if(timeString.substring(timeString.length() -2, timeString.length()).equals("PM")){
@@ -41,7 +43,7 @@ public class BabySitter {
 		}else if(timeString.substring(timeString.length() -2, timeString.length()).equals("AM")){
 			time = Integer.parseInt(timeString.substring(0,1)) + 7;
 		}else{
-			time = 100;
+			throw new IncorrectTimeStampException("The time entered is not a valid timestamp");
 		};		
 		return time;
 	}
