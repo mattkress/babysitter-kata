@@ -1,5 +1,7 @@
 package com.pillarKata;
 
+import com.pillarKata.Exceptions.InvalidFamilyException;
+
 public class Family {
 
 	private String typeOfFamily;
@@ -16,7 +18,7 @@ public class Family {
 		this.typeOfFamily = typeOfFamily;
 	}
 	
-	public int getPaymentFromFamily(String typeOfFamily, int startTime, int endTime){
+	public int getPaymentFromFamily(String typeOfFamily, int startTime, int endTime) throws InvalidFamilyException{
 		int moneyEarned = 0;
 		int time = startTime;
 		if(typeOfFamily.equals("A")){
@@ -58,6 +60,8 @@ public class Family {
 				moneyEarned = moneyEarned + 15;
 				time++;
 			}
+		}else{
+			throw new InvalidFamilyException(typeOfFamily + "is not a valid family type");
 		}
 		
 		return moneyEarned;
