@@ -27,7 +27,7 @@ public class Family {
 		}else if(typeOfFamily.equals("C")){
 			moneyEarned = getPaymentFromFamilyC(startTime, endTime);
 		}else{
-			throw new InvalidFamilyException(typeOfFamily + "is not a valid family type");
+			throw new InvalidFamilyException(typeOfFamily + " is not a valid family type.");
 		}
 		
 		return moneyEarned;

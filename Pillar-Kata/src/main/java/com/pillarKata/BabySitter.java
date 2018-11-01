@@ -16,7 +16,7 @@ public class BabySitter {
 		startTime = convertTimeStringToInt(startTimeString);
 		endTime = convertTimeStringToInt(endTimeString);
 		if(endTime < startTime){
-			throw new EndTimeBeforeStartTimeException("The end time entered is before the start time");
+			throw new EndTimeBeforeStartTimeException("The end time entered is before the start time.");
 		}
 	}
 
@@ -51,13 +51,13 @@ public class BabySitter {
 		}else if(timeString.substring(timeString.length() -2, timeString.length()).equals("AM")){
 			time = Integer.parseInt(timeString.substring(0,1)) + 7;
 		}else{
-			throw new IncorrectTimeStampException("The time entered is not a valid timestamp");
+			throw new IncorrectTimeStampException("The time entered "+ timeString + " is not a valid timestamp.");
 		};
 		//make sure time is within min/max start/end time constraints
 		if(time >= minStartTime && time <= maxEndTime){
 			return time;
 		}else{
-			throw new TimeOutOfBoundsException("The time entered is before/after the possible start/end time");
+			throw new TimeOutOfBoundsException("The time entered "+ timeString + " is before/after the possible start/end time.");
 		}
 	}
 
