@@ -1,5 +1,6 @@
 package com.pillarKata;
 
+import com.pillarKata.Exceptions.EndTimeBeforeStartTimeException;
 import com.pillarKata.Exceptions.IncorrectTimeStampException;
 import com.pillarKata.Exceptions.TimeOutOfBoundsException;
 
@@ -11,9 +12,12 @@ public class BabySitter {
 	private int startTime;
 	private int endTime;
 
-	public BabySitter(String startTimeString, String endTimeString) throws IncorrectTimeStampException, TimeOutOfBoundsException {
+	public BabySitter(String startTimeString, String endTimeString) throws IncorrectTimeStampException, TimeOutOfBoundsException, EndTimeBeforeStartTimeException {
 		startTime = convertTimeStringToInt(startTimeString);
 		endTime = convertTimeStringToInt(endTimeString);
+		if(endTime < startTime){
+			throw new EndTimeBeforeStartTimeException("The end time entered is before the start time");
+		}
 	}
 
 	public int getStartTime() {
