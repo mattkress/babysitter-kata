@@ -1,13 +1,17 @@
 package com.pillarKata;
 
 import com.pillarKata.Exceptions.IncorrectTimeStampException;
+import com.pillarKata.Exceptions.TimeOutOfBoundsException;
 
 public class BabySitter {
+	
+	private int minStartTime = 0;
+	private int maxEndTime = 11;
 
 	private int startTime;
 	private int endTime;
 
-	public BabySitter(String startTimeString, String endTimeString) throws IncorrectTimeStampException {
+	public BabySitter(String startTimeString, String endTimeString) throws IncorrectTimeStampException, TimeOutOfBoundsException {
 		startTime = convertTimeStringToInt(startTimeString);
 		endTime = convertTimeStringToInt(endTimeString);
 	}
@@ -28,7 +32,7 @@ public class BabySitter {
 		this.endTime = endTime;
 	}
 
-	public int convertTimeStringToInt(String timeString) throws IncorrectTimeStampException{
+	public int convertTimeStringToInt(String timeString) throws IncorrectTimeStampException, TimeOutOfBoundsException{
 		int time;
 		//checking if last two characters of string are AM or PM
 		if(timeString.substring(timeString.length() -2, timeString.length()).equals("PM")){
@@ -44,8 +48,13 @@ public class BabySitter {
 			time = Integer.parseInt(timeString.substring(0,1)) + 7;
 		}else{
 			throw new IncorrectTimeStampException("The time entered is not a valid timestamp");
-		};		
-		return time;
+		};
+		//make sure time is within min/max start/end time constraints
+		if(time >= minStartTime && time <= maxEndTime){
+			return time;
+		}else{
+			throw new TimeOutOfBoundsException("The time entered is before/after the possible start/end time");
+		}
 	}
 
 }
